@@ -8,6 +8,7 @@
 ## Dataset
 - Master dataset: `data/pokemon_dataset_MASTER.csv` — 1,231 rows × 55 columns
 - Column groups: base stats, types, physical traits, evolution, legendary flag, derived ratios, role classification, stat tiers, z-scores
+- `data/evo2.csv` (cols: ev1, ev2) and `data/evo3.csv` (cols: ev1, ev2, ev3) — explicit evolution chain pair tables; use for role transition analysis, not name-merging across stages
 - `docs/plans/2026-03-01-pokemon-eda-design.md` — 8-section EDA design with question-per-section structure
 
 ## Development Environment
@@ -20,10 +21,14 @@
 - `uv run jupyter lab` - Launch JupyterLab environment
 - Data files stored in `data/` directory (not tracked in git)
 - Visualization assets in `notebook_images/`
+- Extracted matplotlib PNGs saved to `notebook_images/plot_images/` (tracked in git)
 - `docs/plans/` — design docs (`*-design.md`) and implementation plans (`*-implementation.md`)
 
 ## EDA Notebook (Section 3.3)
+- Notebook has two distinct sections: scraper pipeline (cells 0–42, RAPIDS GPU libs + live web requests — skip in fresh kernel) and EDA (cells 43+, self-contained)
 - Constants/imports cell id `zhargt522xn`: defines `STAT_COLS`, `ROLE_ORDER`, `PCT_COLS`, `ZSCORE_COLS`, `DATA_DIR`, loads `pokes` DataFrame
+- `zhargt522xn` includes `import pandas as pd` — required for self-contained EDA execution; do not remove
+- nbclient execution: find `zhargt522xn` index, run `nb.cells[eda_start:]` as sub-notebook, write outputs back to original
 - TYPE_COLORS cell id `8sfaxj1a05i`: 18-type palette with **title-cased** keys (e.g. `'Fire'`, `'Water'`) — use `color_discrete_map=TYPE_COLORS` in all Plotly type-colored charts
 - `src/plotly_colours.ipynb` has `pokes_colors` with **lowercase** keys — do NOT use directly with Plotly `color_discrete_map` (keys won't match DataFrame column values)
 - `make_subplots` is NOT in the base EDA imports — add `from plotly.subplots import make_subplots` locally when needed
