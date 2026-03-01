@@ -1,0 +1,27 @@
+ 27-02-2026 05:13:03:759 [pid=81619 tid=81619] WARN   0:140 unable to load,  liburcu-bp.so.6 
+
+ 27-02-2026 05:13:03:759 [pid=81619 tid=81619] WARN   0:140 unable to load,  liburcu-bp.so.1 
+
+ 27-02-2026 05:13:04:108 [pid=81619 tid=81619] WARN   0:184 failed to open /proc/driver/nvidia-fs/devcount  error: No such file or directory
+ 27-02-2026 05:13:04:108 [pid=81619 tid=81619] NOTICE  cufio-drv:1063 running in compatible mode
+ 27-02-2026 05:13:05:399 [pid=81619 tid=81619] ERROR  cufio-fs:79 mount option not found in mount table data device: /dev/nvme0n1p2
+ 27-02-2026 05:13:05:399 [pid=81619 tid=81619] NOTICE  cufio:289 cuFileHandleRegister GDS not supported or disabled by config, using cuFile posix read/write with compat mode enabled
+ 27-02-2026 05:13:05:437 [pid=81619 tid=83155] WARN   cufio_core:1856 checkIfHostMem returning false for devPtr: 0x7fbeca000000 curesult =  0
+ 27-02-2026 05:17:15:806 [pid=83696 tid=83696] WARN   0:140 unable to load,  liburcu-bp.so.6 
+
+ 27-02-2026 05:17:15:806 [pid=83696 tid=83696] WARN   0:140 unable to load,  liburcu-bp.so.1 
+
+ 27-02-2026 05:17:16:140 [pid=83696 tid=83696] WARN   0:184 failed to open /proc/driver/nvidia-fs/devcount  error: No such file or directory
+ 27-02-2026 05:17:16:140 [pid=83696 tid=83696] NOTICE  cufio-drv:1063 running in compatible mode
+ 27-02-2026 05:17:17:315 [pid=83696 tid=83696] ERROR  cufio-fs:79 mount option not found in mount table data device: /dev/nvme0n1p2
+ 27-02-2026 05:17:17:315 [pid=83696 tid=83696] NOTICE  cufio:289 cuFileHandleRegister GDS not supported or disabled by config, using cuFile posix read/write with compat mode enabled
+ 27-02-2026 05:17:17:342 [pid=83696 tid=84351] WARN   cufio_core:1856 checkIfHostMem returning false for devPtr: 0x7f9aa0000000 curesult =  0
+ 27-02-2026 21:39:08:668 [pid=49330 tid=49330] WARN   0:140 unable to load,  liburcu-bp.so.6 
+
+ 27-02-2026 21:39:08:668 [pid=49330 tid=49330] WARN   0:140 unable to load,  liburcu-bp.so.1 
+
+ 27-02-2026 21:39:08:995 [pid=49330 tid=49330] WARN   0:184 failed to open /proc/driver/nvidia-fs/devcount  error: No such file or directory
+ 27-02-2026 21:39:08:995 [pid=49330 tid=49330] NOTICE  cufio-drv:1063 running in compatible mode
+ 27-02-2026 21:39:10:255 [pid=49330 tid=49330] ERROR  cufio-fs:79 mount option not found in mount table data device: /dev/nvme0n1p2
+ 27-02-2026 21:39:10:255 [pid=49330 tid=49330] NOTICE  cufio:289 cuFileHandleRegister GDS not supported or disabled by config, using cuFile posix read/write with compat mode enabled
+ 27-02-2026 21:39:10:291 [pid=49330 tid=49600] WARN   cufio_core:1856 checkIfHostMem returning false for devPtr: 0x7f57f8000000 curesult =  0

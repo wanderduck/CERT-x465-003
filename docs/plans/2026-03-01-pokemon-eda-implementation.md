@@ -12,19 +12,20 @@
 
 ## Notes for the Implementer
 
-- All cells go into **`CERT-x465-003_MAIN.ipynb`**, appended after the last existing content cell.
-- The notebook uses `NotebookEdit` with `edit_mode=insert` to add cells after a target `cell_id`.
-- The last existing cell ID is `28d671325d378c6c` (empty markdown `###`). The first new cell goes after this.
-- "Verification" in this plan = `assert` statements confirming data shape/columns before plotting — analogous to failing tests. If an assert fails, diagnose the data issue before proceeding.
-- `uv run jupyter lab` launches the environment.
-- GPU acceleration cells (`%load_ext cudf.pandas`) already exist at the top of the notebook — do NOT add them again.
+-   All cells go into **`CERT-x465-003_MAIN.ipynb`**, appended after the last existing content cell.
+-   The notebook uses `NotebookEdit` with `edit_mode=insert` to add cells after a target `cell_id`.
+-   The last existing cell ID is `28d671325d378c6c` (empty markdown `###`). The first new cell goes after this.
+-   "Verification" in this plan = `assert` statements confirming data shape/columns before plotting — analogous to failing tests. If an assert fails, diagnose the data issue before proceeding.
+-   `uv run jupyter lab` launches the environment.
+-   GPU acceleration cells (`%load_ext cudf.pandas`) already exist at the top of the notebook — do NOT add them again.
 
 ---
 
 ## Task 1: EDA Setup — Imports and Dataset Load
 
 **Files:**
-- Modify: `CERT-x465-003_MAIN.ipynb` (append cells after `28d671325d378c6c`)
+
+-   Modify: `CERT-x465-003_MAIN.ipynb` (append cells after `28d671325d378c6c`)
 
 ### Step 1: Add the EDA section markdown header cell
 
@@ -90,8 +91,8 @@ for col in ZSCORE_COLS:
     assert col in pokes.columns, f"Missing z-score column: {col}"
 
 print(f"Dataset loaded: {pokes.shape[0]} rows × {pokes.shape[1]} columns")
-print(f"\nRole distribution:\n{pokes['Role'].value_counts().to_string()}")
-print(f"\nMissing values in key columns:\n"
+print(f"nRole distribution:n{pokes['Role'].value_counts().to_string()}")
+print(f"nMissing values in key columns:n"
       f"{pokes[['BMI','Role','Stat Std Dev','Legendary','Evolution Stage']].isna().sum().to_string()}")
 ```
 
@@ -109,7 +110,8 @@ git commit -m "feat: add EDA section header, imports, and data verification"
 ## Task 2: Section 1 — Body Composition and Combat Role (Q4)
 
 **Files:**
-- Modify: `CERT-x465-003_MAIN.ipynb`
+
+-   Modify: `CERT-x465-003_MAIN.ipynb`
 
 ### Step 1: Add section markdown header cell
 
@@ -141,7 +143,7 @@ plt.suptitle("Pokémon BMI Distribution", fontsize=14, fontweight='bold')
 plt.tight_layout()
 plt.show()
 
-print("\nTop 10 highest-BMI Pokémon:")
+print("nTop 10 highest-BMI Pokémon:")
 print(pokes.nlargest(10, 'BMI')[
     ['Pokemon', 'Type 1', 'Height (m)', 'Weight (kg)', 'BMI', 'Role']
 ].to_string(index=False))
@@ -204,7 +206,7 @@ ax.set_ylabel('Median BMI')
 plt.tight_layout()
 plt.show()
 
-print("\nMedian BMI per Generation:")
+print("nMedian BMI per Generation:")
 print(gen_bmi.to_string(index=False))
 ```
 
@@ -222,7 +224,8 @@ git commit -m "feat: EDA Section 1 — body composition and combat role (BMI ana
 ## Task 3: Section 2 — Type Shapes Stat Identity (Q5)
 
 **Files:**
-- Modify: `CERT-x465-003_MAIN.ipynb`
+
+-   Modify: `CERT-x465-003_MAIN.ipynb`
 
 ### Step 1: Add section markdown header cell
 
@@ -312,7 +315,7 @@ plt.suptitle('Does Dual Typing Affect Stat Identity?', fontsize=14, fontweight='
 plt.tight_layout()
 plt.show()
 
-print("\nMedian ratios — Mono vs. Dual Type:")
+print("nMedian ratios — Mono vs. Dual Type:")
 print(pokes.groupby('Type Label')[['Physical/Special', 'Offensive/Defensive']].median().round(3).to_string())
 ```
 
@@ -328,7 +331,8 @@ git commit -m "feat: EDA Section 2 — type shapes stat identity (radar + ratio 
 ## Task 4: Section 3 — The Specialization Premium (Q2)
 
 **Files:**
-- Modify: `CERT-x465-003_MAIN.ipynb`
+
+-   Modify: `CERT-x465-003_MAIN.ipynb`
 
 ### Step 1: Add section markdown header cell
 
@@ -404,7 +408,7 @@ plt.suptitle('The Specialization Premium', fontsize=14, fontweight='bold')
 plt.tight_layout()
 plt.show()
 
-print("\nMean Stat Std Dev by Stat Tier:")
+print("nMean Stat Std Dev by Stat Tier:")
 print(pokes.groupby('Stat Tier')['Stat Std Dev'].mean().reindex(
     ['Low', 'Mid', 'High', 'Very High']
 ).round(2).to_string())
@@ -422,7 +426,8 @@ git commit -m "feat: EDA Section 3 — specialization premium (Stat Std Dev anal
 ## Task 5: Section 4 — The Speed-Bulk Tradeoff (Q7)
 
 **Files:**
-- Modify: `CERT-x465-003_MAIN.ipynb`
+
+-   Modify: `CERT-x465-003_MAIN.ipynb`
 
 ### Step 1: Add section markdown header cell
 
@@ -475,7 +480,7 @@ fig, ax = plt.subplots(figsize=(10, 5))
 ax.plot(gen_corrs['Generation'], gen_corrs['Pearson_r'],
         'o-', color='steelblue', linewidth=2, markersize=8)
 ax.axhline(0, color='black', linestyle='--', linewidth=1)
-ax.set_title('Speed–Bulk Correlation by Generation\n(More Negative = Stronger Tradeoff)',
+ax.set_title('Speed–Bulk Correlation by Generationn(More Negative = Stronger Tradeoff)',
              fontweight='bold')
 ax.set_xlabel('Generation')
 ax.set_ylabel("Pearson r")
@@ -483,7 +488,7 @@ ax.set_xticks(range(1, 10))
 plt.tight_layout()
 plt.show()
 
-print("\nPearson r per Generation:")
+print("nPearson r per Generation:")
 print(gen_corrs.to_string(index=False))
 ```
 
@@ -516,7 +521,8 @@ git commit -m "feat: EDA Section 4 — speed-bulk tradeoff across generations"
 ## Task 6: Section 5 — Is Power Creep Asymmetric? (Q1)
 
 **Files:**
-- Modify: `CERT-x465-003_MAIN.ipynb`
+
+-   Modify: `CERT-x465-003_MAIN.ipynb`
 
 ### Step 1: Add section markdown header cell
 
@@ -605,7 +611,7 @@ ax.set_ylabel('Stat Total')
 plt.tight_layout()
 plt.show()
 
-print("\nMean Stat Total per Generation:")
+print("nMean Stat Total per Generation:")
 print(gen_stats[['Generation', 'StatTotal_Mean']].round(1).to_string(index=False))
 ```
 
@@ -621,7 +627,8 @@ git commit -m "feat: EDA Section 5 — asymmetric power creep across generations
 ## Task 7: Section 6 — Is the Legendary Gap Closing? (Q3)
 
 **Files:**
-- Modify: `CERT-x465-003_MAIN.ipynb`
+
+-   Modify: `CERT-x465-003_MAIN.ipynb`
 
 ### Step 1: Add section markdown header cell
 
@@ -653,7 +660,7 @@ ax.set_ylabel('Stat Total')
 plt.tight_layout()
 plt.show()
 
-print("\nStat Total summary by Legendary status:")
+print("nStat Total summary by Legendary status:")
 print(pokes.groupby('Legendary')['Stat Total']
       .agg(['mean', 'median', 'std', 'min', 'max'])
       .round(1).to_string())
@@ -684,7 +691,7 @@ axes[0].set_xticks(range(1, 10))
 
 gen_leg['Gap'].plot(ax=axes[1], kind='bar', color='darkorange', edgecolor='black')
 axes[1].axhline(0, color='black', linestyle='--')
-axes[1].set_title('Legendary Stat Gap by Generation\n(Legendary − Non-Legendary mean)',
+axes[1].set_title('Legendary Stat Gap by Generationn(Legendary − Non-Legendary mean)',
                   fontweight='bold')
 axes[1].set_xlabel('Generation')
 axes[1].set_ylabel('Stat Total Gap')
@@ -694,7 +701,7 @@ plt.suptitle('Is the Legendary Gap Closing?', fontsize=14, fontweight='bold')
 plt.tight_layout()
 plt.show()
 
-print("\nLegendary gap per generation:")
+print("nLegendary gap per generation:")
 print(gen_leg['Gap'].round(1).to_string())
 ```
 
@@ -715,7 +722,7 @@ fig = px.strip(
 )
 fig.show()
 
-print("\nTop 50 non-legendaries — generation breakdown:")
+print("nTop 50 non-legendaries — generation breakdown:")
 print(top50_nonleg['Generation'].value_counts().sort_index().to_string())
 ```
 
@@ -731,7 +738,8 @@ git commit -m "feat: EDA Section 6 — legendary gap closing over generations"
 ## Task 8: Section 7 — Evolution Role Stability (Q6)
 
 **Files:**
-- Modify: `CERT-x465-003_MAIN.ipynb`
+
+-   Modify: `CERT-x465-003_MAIN.ipynb`
 
 ### Step 1: Add section markdown header cell
 
@@ -808,7 +816,7 @@ plt.show()
 # Role-preservation rate
 total_1_2  = trans_1_2.values.sum()
 preserved  = sum(trans_1_2.iloc[i, i] for i in range(len(ROLE_ORDER)))
-print(f"\nStage 1→2 role preservation rate: {preserved/total_1_2:.1%}")
+print(f"nStage 1→2 role preservation rate: {preserved/total_1_2:.1%}")
 ```
 
 **Verify:** Diagonal values dominate (most roles preserved). Non-zero off-diagonal cells show flips.
@@ -832,7 +840,7 @@ ax.tick_params(axis='x', rotation=30)
 plt.tight_layout()
 plt.show()
 
-print("\nMean stat gain per evolution step:")
+print("nMean stat gain per evolution step:")
 print(stat_delta.round(1).to_string())
 ```
 
@@ -848,7 +856,8 @@ git commit -m "feat: EDA Section 7 — evolution role stability and stat growth"
 ## Task 9: ML Capstone — Unsupervised Clustering
 
 **Files:**
-- Modify: `CERT-x465-003_MAIN.ipynb`
+
+-   Modify: `CERT-x465-003_MAIN.ipynb`
 
 ### Step 1: Add section markdown header cell
 
@@ -916,7 +925,7 @@ cluster_df['PC2'] = components[:, 1]
 
 print(f"Cluster sizes (K={CHOSEN_K}):")
 print(cluster_df['Cluster'].value_counts().sort_index().to_string())
-print(f"\nPCA explained variance: "
+print(f"nPCA explained variance: "
       f"PC1={pca.explained_variance_ratio_[0]:.1%}, "
       f"PC2={pca.explained_variance_ratio_[1]:.1%}")
 
@@ -968,7 +977,7 @@ ax.tick_params(axis='x', rotation=30)
 plt.tight_layout()
 plt.show()
 
-print("\nCluster mean stat profiles:")
+print("nCluster mean stat profiles:")
 print(cluster_profiles.round(1).to_string())
 ```
 
@@ -978,7 +987,7 @@ print(cluster_profiles.round(1).to_string())
 # --- 8e: Notable Pokémon in each cluster ---
 for c in sorted(cluster_df['Cluster'].unique()):
     subset = cluster_df[cluster_df['Cluster'] == c]
-    print(f"\n--- Cluster {c} ({len(subset)} Pokémon) ---")
+    print(f"n--- Cluster {c} ({len(subset)} Pokémon) ---")
     top5 = subset.nlargest(5, 'Stat Total')[
         ['Pokemon', 'Type 1', 'Role', 'Stat Total', 'Legendary']
     ]
@@ -996,19 +1005,92 @@ git commit -m "feat: EDA Section 8 — ML capstone K-Means clustering with PCA p
 
 ## Quick-Reference: Column Inventory
 
-| Column | Type | Used in |
-|---|---|---|
-| `BMI` | float | Tasks 2 |
-| `Role` | str category | Tasks 2, 4, 9 |
-| `Stat Std Dev` | float | Task 4 |
-| `Offensive Total` / `Defensive Total` | int | Task 6 |
-| `Offensive/Defensive` | float | Tasks 3, 5, 6 |
-| `Physical/Special` | float | Tasks 3, 8 |
-| `Bulk` (derived in Task 5) | int | Task 5 |
-| `Legendary` | bool | Task 7 |
-| `Evolution Stage` | int (0-3) | Task 8 |
-| `Generation` | int (1-9) | Tasks 2, 5, 6, 7 |
-| `*_zscore` (6 cols) | float | Task 9 |
-| `*_pct` (6 cols) | float | Task 3 |
-| `Speed/Defense` | float | Task 5 |
-| `Dual Type` / `Type Label` | bool/str | Task 3 |
+Column
+
+Type
+
+Used in
+
+`BMI`
+
+float
+
+Tasks 2
+
+`Role`
+
+str category
+
+Tasks 2, 4, 9
+
+`Stat Std Dev`
+
+float
+
+Task 4
+
+`Offensive Total` / `Defensive Total`
+
+int
+
+Task 6
+
+`Offensive/Defensive`
+
+float
+
+Tasks 3, 5, 6
+
+`Physical/Special`
+
+float
+
+Tasks 3, 8
+
+`Bulk` (derived in Task 5)
+
+int
+
+Task 5
+
+`Legendary`
+
+bool
+
+Task 7
+
+`Evolution Stage`
+
+int (0-3)
+
+Task 8
+
+`Generation`
+
+int (1-9)
+
+Tasks 2, 5, 6, 7
+
+`*_zscore` (6 cols)
+
+float
+
+Task 9
+
+`*_pct` (6 cols)
+
+float
+
+Task 3
+
+`Speed/Defense`
+
+float
+
+Task 5
+
+`Dual Type` / `Type Label`
+
+bool/str
+
+Task 3
