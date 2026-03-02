@@ -1,8 +1,6 @@
-![University of Minnesota](notebook_images/umn_banner.png)
+![University of Minnesota Banner](notebook_images/umn_banner.png)
 
 ---
-
-# 
 
 **CERT x465-003**: Data Interpretation and Application
 
