@@ -30,8 +30,16 @@
 - `zhargt522xn` includes `import pandas as pd` — required for self-contained EDA execution; do not remove
 - nbclient execution: find `zhargt522xn` index, run `nb.cells[eda_start:]` as sub-notebook, write outputs back to original
 - TYPE_COLORS cell id `8sfaxj1a05i`: 18-type palette with **title-cased** keys (e.g. `'Fire'`, `'Water'`) — use `color_discrete_map=TYPE_COLORS` in all Plotly type-colored charts
+- `8sfaxj1a05i` also defines: `TYPE_COLORS_LIGHT`, `TYPE_COLORS_DARK`, `ROLE_COLORS`, `ROLE_COLOR_MAP`, `stats_note(fig, text)` helper, and `_hex_scale(hex, factor)` — use from there, never redefine
 - `src/plotly_colours.ipynb` has `pokes_colors` with **lowercase** keys — do NOT use directly with Plotly `color_discrete_map` (keys won't match DataFrame column values)
+- Chart defaults in `zhargt522xn`: `_H=1200`, `_W=1600`, `_T='plotly_dark'` — apply to every figure
+- `stats_note(fig, text)` — appends a centered annotation below the plot area at `y=-0.10`; call before `fig.show()`
 - `make_subplots` is NOT in the base EDA imports — add `from plotly.subplots import make_subplots` locally when needed
+- `px.box()` does NOT accept `color_continuous_scale` — cast numeric columns to string and use `color_discrete_map` instead
+- `Speed Tier` column has 3 values: `Slow`, `Medium`, `Fast` (not a 5-tier scale); `Stat Tier`: `Low`, `Mid`, `High`, `Very High`
+- Plotly outputs in nbclient are `application/vnd.plotly.v1+json`, not PNGs — verify with `c['outputs'][0]['data']['application/vnd.plotly.v1+json']`
+- Polar subplot key naming: first subplot is `'polar'`, subsequent are `'polar2'`, `'polar3'`, etc. (`'polar' if i==0 else f'polar{i+1}'`)
+- `go.Sankey` node list: source-side roles first, then target-side roles; links map from index `0..n-1` to index `n..2n-1`
 
 ## Git Practices
 - Currently staged changes include notebooks and project config - verify before committing
