@@ -33,8 +33,10 @@
 - `8sfaxj1a05i` also defines: `TYPE_COLORS_LIGHT`, `TYPE_COLORS_DARK`, `ROLE_COLORS`, `ROLE_COLOR_MAP`, `stats_note(fig, text)` helper, and `_hex_scale(hex, factor)` — use from there, never redefine
 - `src/plotly_colours.ipynb` has `pokes_colors` with **lowercase** keys — do NOT use directly with Plotly `color_discrete_map` (keys won't match DataFrame column values)
 - Chart defaults in `zhargt522xn`: `_H=1200`, `_W=1600`, `_T='plotly_dark'` — apply to every figure
-- `stats_note(fig, text)` — appends a centered annotation below the plot area at `y=-0.10`; call before `fig.show()`
+- `stats_note(fig, text)` — appends a centered annotation below the plot area at `y=-0.16`, `bottom_margin=300`; call before `fig.show()`; adjust `y_pos` further negative if it still overlaps x-axis labels
 - `make_subplots` is NOT in the base EDA imports — add `from plotly.subplots import make_subplots` locally when needed
+- Violin width in `violinmode='group'`: add `violingap=0.1, violingroupgap=0.05` to `update_layout` to widen violin bodies
+- Histogram bin width: `bargap=0` makes bins touch; default has visible gaps
 - `px.box()` does NOT accept `color_continuous_scale` — cast numeric columns to string and use `color_discrete_map` instead
 - `Speed Tier` column has 3 values: `Slow`, `Medium`, `Fast` (not a 5-tier scale); `Stat Tier`: `Low`, `Mid`, `High`, `Very High`
 - Plotly outputs in nbclient are `application/vnd.plotly.v1+json`, not PNGs — verify with `c['outputs'][0]['data']['application/vnd.plotly.v1+json']`
