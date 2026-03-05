@@ -23,6 +23,9 @@ This repository is where I am documenting my progress through the CERT x465-003 
 -   **`notebook_images/`**: This directory contains images I will use either in this markdown file or the jupyter notebook listed above.
 -   **`src/`**: This directory is where I will store helper files and notebooks used to assist in dataset gathering, analysis, visualizations, and whatever else I cook-up
 
+
+[SLIDE DECK HERE](https://docs.google.com/presentation/d/1VHugoBkgPzAysMSBAtN-3jqDM54-odsG7L3hqSGIrJU/edit?usp=drivesdk)
+
 ---
 
 ## Course Information
