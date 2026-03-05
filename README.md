@@ -2,8 +2,10 @@
 
 ---
 
-**CERT x465-003**: Data Interpretation and Application
+# **CERT x465-003**: Data Interpretation and Application
 
+  
+  
 ![The World of Data](notebook_images/data_interpretation.jpg)
 
 ---
@@ -133,3 +135,62 @@ In our data-filled world, it is important to be able to effectively interpret da
 -   Along with the course completion certificate, students will be awarded 3.0 Continuing Education Units (CEUs). Students will not receive University credit for completing the course as this is a non-credit course.
 
 ---
+
+## Assignment Specifics
+
+### Assignment 01 Details
+
+-   Write a short essay that address the following questions:
+    
+    -   What problem or question are you trying to address?
+    -   Why are you interested in addressing this?
+    -   Why is this an important question or problem to address (in general)?
+    -   Who might your audience(s) be for this investigation?
+    -   How will the results of this investigation help your audience make decisions or draw conclusions?
+
+### Assignment 02-A Details
+
+-   Identify at least one data source that can help answer the question you developed in Module 1.
+
+1.  First, do some research on your own to try and find a data source(s).
+    -   You might start with a simple Google search, you may ask someone who has knowledge in the area, or you might already know of some candidates.
+    -   For example, if your question pertains to K-12 education in Minnesota, you might check out the Department of Education's data sources.
+2.  After you have finished your search and identified good data source(s), please write a short essay that addresses to the following questions:
+    -   Describe the data source(s) that you found.
+    -   How is the data relevant to your question?
+    -   Where does the data come from?
+    -   How reliable is the source? Are there any signs of bias?  
+        
+
+### Assignment 03 Details
+
+-   Using the data source(s) that you identified, produce a 5-minute video describing what you are seeing in the data and what conclusions the data is pointing towards.
+-   Tie findings back to the original question.
+-   Discuss how groups with different perspectives might interpret the data differently.
+-   Post the video and provide feedback on at least two peers' videos.
+
+### Assignment 04 Details
+
+-   Find two data visualizations online
+    
+    1.  one that you think is a good, effective visual
+    2.  one that you think is less effective.
+-   Note that these do not need to be about the same topic your other assignments have focused on.
+    
+-   Write a reflection paper about the data visualizations that answer the following questions:
+    
+    -   What are the key points that each visualization is trying to make?
+    -   What makes the good visualization good?
+    -   What makes the bad visualization bad? How would you improve it to make it easier to interpret?
+
+### Assignment 05 Details
+
+-   **Part 1: Report for Stakeholders**: Write a brief report containing at least three recommendations justified by data.
+-   **Part 2: Presentation**: Record a 5-minute "elevator speech" presenting your recommendations.
+-   Provide feedback on two peers' videos.
+
+### Assignment 06 Details
+
+-   Submit a final reflection on the learning outcomes and takeaways from the course.
+
+**

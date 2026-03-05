@@ -7,6 +7,7 @@ dependencies = [
     "anywidget>=0.9.21",
     "cairocffi>=1.7.1",
     "currencyconverter>=0.18.14",
+    "dash>=4.0.0",
     "igraph>=1.0.0",
     "ipywidgets>=8.1.8",
     "jupyterlab>=4.5.3",

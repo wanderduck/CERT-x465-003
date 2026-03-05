@@ -1,0 +1,15 @@
+Cluster,Name,Size,Mean BST,Composition,Defining Trait
+C0,Fairy Fortress Elite,5,506,Fairy,Extreme Sp. Def
+C1,Dragon Powerhouses,52,545,Dragon,Highest BST; 31% Legendary
+C2,Extreme Wall Outlier,1,400,Psychic (Cosmoem),Def = Sp. Def = 131; zero offense
+C3,Ghost Generalists,47,441,Ghost,No standout stat; versatile roles
+C4,Electric Speedsters,73,453,Electric,Speed + Sp. Atk emphasis
+C5,Blue-Collar Brawlers,205,446,Water + Fighting,Physical lean; largest cluster
+C6,Armored Heavyweights,208,460,Rock / Ground / Steel / Ice,Highest Defense; slowest; heaviest BMI
+C7,Low-Stat Midtiers,170,425,Bug + Fire,Lowest overall stats
+C8,Pixie Wardens,30,462,Fairy,Sp. Def focused; light build
+C9,Rooted Slowpokes,113,428,Grass,Lowest Speed of any cluster
+C10,Toxic Heavies,60,446,Poison + Normal,No standout stat; heavy
+C11,Shadow Strikers,59,456,Dark,Above-average Attack + Speed
+C12,Psychic Cannons,79,486,Psychic,Highest Sp. Atk; 35% Legendary
+C13,Fragile Normals,129,412,Normal + Flying Lowest BST;,below-average defenses

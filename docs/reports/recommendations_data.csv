@@ -1,0 +1,6 @@
+#,Recommendation,Key Data Point,Effort
+1,Restore Legendary differentiation through stat-shape distinctiveness,~150-pt gap persistent but porous at elite tier (top 25 overlap),Medium — stat profile guidelines + pseudo-legendary BST cap
+2,Embrace design diversification over uniform power creep,"Stable medians + rising variance = diversification, not inflation; Off/Def ratio steady at ~1.0",Low — formalize existing trend with explicit diversity targets
+3,Preserve type fingerprints as a design anchor,18 distinct profiles stable across 9 gens; specialization premium r = 0.45,Low — documentation and awareness
+4,Make the glass cannon tradeoff intentional,"Speed-Bulk r = +0.18; Offense-Bulk r = +0.61 — both contradict ""glass cannon"" assumption",High — requires design philosophy decision + generation-level targets
+5,Design around the HP axis,HP most inflated stat (+12.8 pts); no HP-specialist cluster in 14-cluster GMM; multi-type alliances prove cross-type archetypes are viable,Medium — new designs across 4+ types with shared HP-anchored stat shape
