@@ -197,6 +197,9 @@ app.index_string = '''<!DOCTYPE html>
     background-color: #fff !important;
     font-weight: bold;
 }
+.rc-slider-mark-text {
+    color: #ccc;
+}
 </style>
 </head>
 <body>
@@ -261,7 +264,8 @@ app.layout = html.Div(
                         html.Label("Type 2", style=FILTER_LABEL_STYLE),
                         dcc.Dropdown(
                             id="type2-filter",
-                            options=[{"label": t, "value": t} for t in ALL_TYPES],
+                            options=[{"label": "None (single-type)", "value": "_none_"}]
+                                    + [{"label": t, "value": t} for t in ALL_TYPES],
                             multi=True,
                             placeholder="All types",
                             style=DROPDOWN_STYLE,
@@ -442,7 +446,7 @@ def _creator_form():
                           value=1.0, min=0.1, max=100, step=0.1,
                           style={"width": "100%", "padding": "6px", "borderRadius": "4px",
                                  "border": "1px solid #555", "backgroundColor": "#1a1a2e",
-                                 "color": "#fff"}),
+                                 "color": "#ccc"}),
             ], style={"flex": "1"}),
             html.Div([
                 html.Div("Weight (kg)", style=_FORM_LABEL),
@@ -450,7 +454,7 @@ def _creator_form():
                           value=50.0, min=0.1, max=9999, step=0.1,
                           style={"width": "100%", "padding": "6px", "borderRadius": "4px",
                                  "border": "1px solid #555", "backgroundColor": "#1a1a2e",
-                                 "color": "#fff"}),
+                                 "color": "#ccc"}),
             ], style={"flex": "1"}),
         ]),
         html.Div("Legendary?", style={**_FORM_LABEL, "marginTop": "18px"}),
@@ -723,7 +727,14 @@ def update_dashboard(gens, types, types2, roles, legendary, active_tab):
     if types:
         filtered = filtered[filtered["Type 1"].isin(types)]
     if types2:
-        filtered = filtered[filtered["Type 2"].isin(types2)]
+        include_none = "_none_" in types2
+        real_types = [t for t in types2 if t != "_none_"]
+        mask = pd.Series(False, index=filtered.index)
+        if real_types:
+            mask |= filtered["Type 2"].isin(real_types)
+        if include_none:
+            mask |= filtered["Type 2"].isna()
+        filtered = filtered[mask]
     if roles:
         rule_roles = [r.split(":", 1)[1] for r in roles if r.startswith("rule:")]
         cluster_roles = [r.split(":", 1)[1] for r in roles if r.startswith("cluster:")]

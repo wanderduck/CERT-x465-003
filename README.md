@@ -4,8 +4,6 @@
 
 # **CERT x465-003**: Data Interpretation and Application
 
-  
-  
 ![The World of Data](notebook_images/data_interpretation.jpg)
 
 ---
@@ -159,8 +157,7 @@ In our data-filled world, it is important to be able to effectively interpret da
     -   Describe the data source(s) that you found.
     -   How is the data relevant to your question?
     -   Where does the data come from?
-    -   How reliable is the source? Are there any signs of bias?  
-        
+    -   How reliable is the source? Are there any signs of bias?
 
 ### Assignment 03 Details
 
