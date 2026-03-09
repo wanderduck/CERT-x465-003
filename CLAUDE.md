@@ -10,6 +10,7 @@
 
 -   Master dataset: `data/pokemon_dataset_MASTER.csv` — 1,231 rows × 55 columns
 -   Column groups: base stats, types, physical traits, evolution, legendary flag, derived ratios, role classification, stat tiers, z-scores
+-   GMM cluster assignments are NOT in the CSV — computed at runtime in `src/dashboard.py` and notebook Section 7; `CLUSTER_NAMES` maps IDs to curated names
 -   `data/evo2.csv` (cols: ev1, ev2) and `data/evo3.csv` (cols: ev1, ev2, ev3) — explicit evolution chain pair tables; use for role transition analysis, not name-merging across stages
 -   `docs/plans/pokemon-eda-design.md` — 8-section EDA design with question-per-section structure
 
@@ -27,7 +28,21 @@
 -   Visualization assets in `notebook_images/`
 -   Extracted matplotlib PNGs saved to `notebook_images/plot_images/` (tracked in git)
 -   `docs/plans/` — design docs (`*-design.md`) and implementation plans (`*-implementation.md`)
--   `docs/reports/` — analytical reports (`full_report.md`, `assignment-03-eda-report.md`, `assignment-05a-recommendations-report.md`)
+-   `docs/reports/` — analytical reports (`full_report.md`, `assignment-03-eda-report.md`, `assignment-05a-recommendations-report.md`, `dashboard.md`)
+
+## Dashboard (`src/dashboard.py`)
+
+-   Plotly Dash app: `uv run python src/dashboard.py` → `http://localhost:8050`
+-   Reads `data/pokemon_dataset_MASTER.csv` relative to script location
+-   Runs GMM (K=14, 27 features) at startup to compute `Cluster Role` column — adds ~1-2s to import
+-   `app.config.suppress_callback_exceptions = True` — required because creator tab components only exist when that tab is active
+-   Custom CSS injection via `app.index_string` (Dash has no `html.Style`) — used for slider tooltip text color fix
+-   Slider tooltips use `.rc-slider-tooltip-inner` CSS class
+-   6 global filters: Generation, Type 1, Type 2, Role (21 options: 7 rule + 14 cluster with `rule:`/`cluster:` prefix), Legendary
+-   6 tabs: Overview, Type Identity, Power & Specialization, Generational Trends, Evolution & Roles, Pokemon Creator
+-   Pokemon Creator has its own independent callback (not part of main `update_dashboard`) + a reset callback
+-   `TYPE_COLORS_LIGHT`/`TYPE_COLORS_DARK` replicated from notebook cell `8sfaxj1a05i` via `_hex_scale()` — needed for 2c-style radar layering
+-   `CLUSTER_NAMES` dict maps GMM cluster IDs 0-13 to curated names (must match notebook cell `umfn8vk5n7`)
 
 ## EDA Notebook (Section 3.3)
 
